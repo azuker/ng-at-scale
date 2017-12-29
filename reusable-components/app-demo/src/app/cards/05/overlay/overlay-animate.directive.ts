@@ -3,8 +3,8 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
 @Directive({
     selector: '[overlayAnimate]',
 })
-export class OverlayAnimateDirective {
-    @HostBinding('overlayAnimate') animationState: string;
+export class OverlayAnimate5Directive {
+    @HostBinding('@overlayAnimation') animationState: string;
     animationActive = false;
 
     toggleOverlay(value?: boolean) {

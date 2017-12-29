@@ -4,7 +4,7 @@ import { Game } from '../../../models/model';
 @Component({
   selector: 'app-game-card-overlay5',
   templateUrl: './game-card-overlay.component.html',
-  styleUrls: ['./game-card-overlay.component.css']
+  styleUrls: ['./game-card-overlay.component.css'],
 })
 export class GameCardOverlay5Component {
   teamPhotoPrefix = '../../../../assets/images/';

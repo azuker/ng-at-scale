@@ -15,7 +15,8 @@ export class GameCardOverlay6Component {
     return this.game == null ? null : this.game.date < new Date();
   }
 
-  onPlayClicked() {
+  onPlayClicked(event) {
     this.playClicked.emit(this.game);
+    event.stopPropagation();
   }
 }

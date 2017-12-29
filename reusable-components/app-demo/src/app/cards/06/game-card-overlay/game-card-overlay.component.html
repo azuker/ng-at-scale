@@ -1,5 +1,5 @@
 <div class="overlayContent">
     <span>{{ isOver ? 'Game has ended' : 'Game has not begun' }}</span>
-    <img [src]="teamPhotoPrefix + 'Play.svg'" (click)="onPlayClicked()" />
+    <img [src]="teamPhotoPrefix + 'Play.svg'" (click)="onPlayClicked($event)" />
     <span>{{ isOver ? 'Watch game' : 'Preview' }}</span>
 </div>

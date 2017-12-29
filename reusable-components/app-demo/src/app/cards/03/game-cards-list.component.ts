@@ -1,7 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Game } from '../../models/model';
-import { GameCardOverlay2Component } from './game-card-overlay2/game-card-overlay2.component';
-import { GameCard2Component } from './game-card2/game-card2.component';
+import { GameCardOverlay3Component } from './game-card-overlay/game-card-overlay.component';
+import { GameCard3Component } from './game-card/game-card.component';
 
 @Component({
     selector: 'game-cards-list',
@@ -17,9 +17,9 @@ import { GameCard2Component } from './game-card2/game-card2.component';
     `,
     styles: [ '.cards-container { display: flex; justify-content: space-around; }' ],
 })
-export class GameCardsList2Component {
-    cardComponentType = GameCard2Component;
-    overlayComponentType = GameCardOverlay2Component;
+export class GameCardsList3Component {
+    cardComponentType = GameCard3Component;
+    overlayComponentType = GameCardOverlay3Component;
 
     @Input() games: Game[] = [];
     @Output() playClicked = new EventEmitter<Game>();

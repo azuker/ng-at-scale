@@ -1,0 +1,13 @@
+.overlayContent {
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.overlayContent span {
+    color: white;
+    font-size: 20px;
+}

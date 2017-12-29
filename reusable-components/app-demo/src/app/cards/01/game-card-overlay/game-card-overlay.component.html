@@ -16,9 +16,9 @@
   </div>
   <div class="overlay" [@flyInOut]="overlayActive.toString()">
     <div class="overlayContent">
-        <span>{{ overlayTopText }}</span>
+        <span>{{ isOver ? 'Game has ended' : 'Game has not begun' }}</span>
         <img [src]="teamPhotoPrefix + 'Play.svg'" (click)="onPlayClicked()" />
-        <span>{{ overlayBottomText }}</span>
+        <span>{{ isOver ? 'Watch game' : 'Preview' }}</span>
     </div>
   </div>
 </div>

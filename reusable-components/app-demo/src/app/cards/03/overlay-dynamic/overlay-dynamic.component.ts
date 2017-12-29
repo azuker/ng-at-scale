@@ -5,12 +5,12 @@ import { slideBottomUpAnimation } from '../../../animations';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-overlay-dynamic',
+  selector: 'app-overlay-dynamic3',
   templateUrl: './overlay-dynamic.component.html',
   styleUrls: ['./overlay-dynamic.component.css'],
   animations: [ slideBottomUpAnimation ],
 })
-export class OverlayDynamicComponent implements OnDestroy, OnChanges, AfterViewInit {
+export class OverlayDynamic3Component implements OnDestroy, OnChanges, AfterViewInit {
 
   @ViewChild('cardHost', { read: ViewContainerRef }) cardHost: ViewContainerRef;
   @ViewChild('overlayHost', { read: ViewContainerRef }) overlayHost: ViewContainerRef;

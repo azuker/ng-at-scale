@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Game } from '../../../models/model';
 import { slideBottomUpAnimation } from '../../../animations';
 
@@ -8,12 +8,10 @@ import { slideBottomUpAnimation } from '../../../animations';
   styleUrls: ['./game-card-overlay.component.css'],
   animations: [ slideBottomUpAnimation ],
 })
-export class GameCardOverlayComponent implements OnChanges {
+export class GameCardOverlayComponent {
 
   teamPhotoPrefix = '../../../../assets/images/';
   overlayActive = false;
-  overlayTopText: string;
-  overlayBottomText: string;
 
   @Input() game: Game;
   @Output() playClicked = new EventEmitter<Game>();
@@ -22,17 +20,8 @@ export class GameCardOverlayComponent implements OnChanges {
     this.overlayActive = value == null ? !this.overlayActive : value;
   }
 
-  ngOnChanges() {
-    if (this.game == null) {
-      this.overlayTopText = null;
-      this.overlayBottomText = null;
-    } else if (this.game.date < new Date()) {
-      this.overlayTopText = 'Game has Ended';
-      this.overlayBottomText = 'Watch Game';
-    } else {
-      this.overlayTopText = 'Game has not Begun';
-      this.overlayBottomText = 'Preview';
-    }
+  get isOver(): boolean {
+    return this.game == null ? null : this.game.date < new Date();
   }
 
   onPlayClicked() {

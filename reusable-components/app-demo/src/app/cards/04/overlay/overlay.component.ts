@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { slideBottomUpAnimation } from '../../../animations';
+import { slideTopDownAnimation } from '../../../animations';
 
 @Component({
   selector: 'app-overlay4',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.css'],
-  animations: [ slideBottomUpAnimation ],
+  animations: [ slideTopDownAnimation ],
 })
 export class Overlay4Component {
   overlayActive = false;

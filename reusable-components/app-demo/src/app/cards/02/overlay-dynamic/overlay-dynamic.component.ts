@@ -1,14 +1,14 @@
 import { Component, ViewChild, ViewContainerRef, Input, Type, ComponentRef,
   OnDestroy, AfterViewInit, AfterViewChecked, ComponentFactoryResolver, OnChanges,
   ElementRef, Output, EventEmitter } from '@angular/core';
-import { slideBottomUpAnimation } from '../../../animations';
+import { slideTopDownAnimation } from '../../../animations';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-overlay-dynamic',
   templateUrl: './overlay-dynamic.component.html',
   styleUrls: ['./overlay-dynamic.component.css'],
-  animations: [ slideBottomUpAnimation ],
+  animations: [ slideTopDownAnimation ],
 })
 export class OverlayDynamicComponent implements OnDestroy, OnChanges, AfterViewInit {
 

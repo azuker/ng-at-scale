@@ -14,6 +14,12 @@ import { OverlayDynamic3Component } from './cards/03/overlay-dynamic/overlay-dyn
 import { Overlay4Component } from './cards/04/overlay/overlay.component';
 import { GameCard4Component } from './cards/04/game-card/game-card.component';
 import { GameCardOverlay4Component } from './cards/04/game-card-overlay/game-card-overlay.component';
+import { Overlay5Component } from './cards/05/overlay/overlay.component';
+import { GameCard5Component } from './cards/05/game-card/game-card.component';
+import { GameCardOverlay5Component } from './cards/05/game-card-overlay/game-card-overlay.component';
+import { Overlay6Component } from './cards/06/overlay/overlay.component';
+import { GameCard6Component } from './cards/06/game-card/game-card.component';
+import { GameCardOverlay6Component } from './cards/06/game-card-overlay/game-card-overlay.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +35,12 @@ import { GameCardOverlay4Component } from './cards/04/game-card-overlay/game-car
     Overlay4Component,
     GameCard4Component,
     GameCardOverlay4Component,
+    Overlay5Component,
+    GameCard5Component,
+    GameCardOverlay5Component,
+    Overlay6Component,
+    GameCard6Component,
+    GameCardOverlay6Component,
   ],
   entryComponents: [
     GameCardOverlay2Component,

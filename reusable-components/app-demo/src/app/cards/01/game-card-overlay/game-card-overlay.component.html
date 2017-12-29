@@ -14,7 +14,7 @@
       <span *ngIf="game.homeScore">{{ game.homeScore }}</span>
     </div>
   </div>
-  <div class="overlay" [@flyInOut]="overlayActive.toString()">
+  <div class="overlay" [@slideTopDown]="overlayActive.toString()">
     <div class="overlayContent">
         <span>{{ isOver ? 'Game has ended' : 'Game has not begun' }}</span>
         <img [src]="teamPhotoPrefix + 'Play.svg'" (click)="onPlayClicked()" />

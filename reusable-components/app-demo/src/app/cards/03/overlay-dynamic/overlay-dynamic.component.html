@@ -1,6 +1,6 @@
 <div class="container" (mouseover)="toggleOverlay(true)" (mouseleave)="toggleOverlay(false)">
   <div #cardHost></div>
-  <div class="overlay" [@flyInOut]="overlayActive.toString()">
+  <div class="overlay" [@slideTopDown]="overlayActive.toString()">
       <ng-container #overlayHost></ng-container>
   </div>
 </div>

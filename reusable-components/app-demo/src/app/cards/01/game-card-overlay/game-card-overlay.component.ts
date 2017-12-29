@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Game } from '../../../models/model';
-import { slideBottomUpAnimation } from '../../../animations';
+import { slideTopDownAnimation } from '../../../animations';
 
 @Component({
   selector: 'game-card-overlay',
   templateUrl: './game-card-overlay.component.html',
   styleUrls: ['./game-card-overlay.component.css'],
-  animations: [ slideBottomUpAnimation ],
+  animations: [ slideTopDownAnimation ],
 })
 export class GameCardOverlayComponent {
 

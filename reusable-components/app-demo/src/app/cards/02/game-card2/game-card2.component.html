@@ -1,0 +1,17 @@
+<div class="card" *ngIf="game">
+  <div class="container">
+    <div class="away">
+      <img [src]="teamPhotoPrefix + game.awayTeam.imageName" />
+      <span>{{ game.awayTeam.name }}</span>
+      <span *ngIf="game.awayScore">{{ game.awayScore }}</span>
+    </div>
+    <div class="date">
+      <span>{{ game.date | date:'short' }}</span>
+    </div>
+    <div class="home">
+      <img [src]="teamPhotoPrefix + game.homeTeam.imageName" />
+      <span>{{ game.homeTeam.name }}</span>
+      <span *ngIf="game.homeScore">{{ game.homeScore }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+import { Component, ViewChild, ViewContainerRef, Input, Type, ComponentRef,
+  OnDestroy, AfterViewInit, AfterViewChecked, ComponentFactoryResolver, OnChanges,
+  ElementRef, Output, EventEmitter } from '@angular/core';
+import { slideBottomUpAnimation } from '../../../animations';
+import { Subscription } from 'rxjs/Subscription';
+
+@Component({
+  selector: 'app-overlay-dynamic',
+  templateUrl: './overlay-dynamic.component.html',
+  styleUrls: ['./overlay-dynamic.component.css'],
+  animations: [ slideBottomUpAnimation ],
+})
+export class OverlayDynamicComponent implements OnDestroy, OnChanges, AfterViewInit {
+
+  @ViewChild('cardHost', { read: ViewContainerRef }) cardHost: ViewContainerRef;
+  @ViewChild('overlayHost', { read: ViewContainerRef }) overlayHost: ViewContainerRef;
+  @ViewChild('overlay') overlay: ElementRef;
+  @Input() cardComponentType: Type<any>;
+  @Input() overlayComponentType: Type<any>;
+  @Input() overlayData: any;
+  @Input() cardData: any;
+  @Output() childEvents = new EventEmitter<any>();
+
+  subscription: Subscription;
+  cardComponentRef: ComponentRef<any>;
+  overlayComponentRef: ComponentRef<any>;
+  overlayActive = false;
+
+  constructor(private factoryResolver: ComponentFactoryResolver) {
+  }
+
+  toggleOverlay(value?: boolean) {
+    this.overlayActive = value == null ? !this.overlayActive : value;
+  }
+
+  ngAfterViewInit() {
+    const cardFactory = this.factoryResolver.resolveComponentFactory(this.cardComponentType);
+    this.cardHost.clear();
+    this.cardComponentRef = this.cardHost.createComponent(cardFactory);
+    this.cardComponentRef.instance.data = this.cardData;
+    this.cardComponentRef.changeDetectorRef.detectChanges();
+
+    const overlayFactory = this.factoryResolver.resolveComponentFactory(this.overlayComponentType);
+    this.overlayHost.clear();
+    this.overlayComponentRef = this.overlayHost.createComponent(overlayFactory);
+    this.overlayComponentRef.instance.data = this.overlayData;
+    this.overlayComponentRef.changeDetectorRef.detectChanges();
+
+    this.subscription = (this.overlayComponentRef.instance.playClicked as EventEmitter<any>)
+      .subscribe((data: any) => this.childEvents.emit({ event: 'playClicked', payload: data }));
+
+    const div = this.overlay.nativeElement as HTMLDivElement;
+    const host = div.children[div.children.length - 1] as HTMLElement;
+    host.style.display = 'flex';
+    host.style.width = '100%';
+  }
+
+  ngOnChanges() {
+    if (this.cardComponentRef) {
+      this.cardComponentRef.instance.data = this.cardData;
+    }
+    if (this.overlayComponentRef) {
+      this.overlayComponentRef.instance.data = this.overlayData;
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    if (this.cardComponentRef) {
+      this.cardComponentRef.destroy();
+    }
+    if (this.overlayComponentRef) {
+      this.overlayComponentRef.destroy();
+    }
+  }
+}

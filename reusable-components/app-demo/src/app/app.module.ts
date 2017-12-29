@@ -20,7 +20,6 @@ import { GameCardOverlay5Component } from './cards/05/game-card-overlay/game-car
 import { Overlay6Component } from './cards/06/overlay/overlay.component';
 import { GameCard6Component } from './cards/06/game-card/game-card.component';
 import { GameCardOverlay6Component } from './cards/06/game-card-overlay/game-card-overlay.component';
-import { OverlayAnimate5Directive } from './cards/05/overlay/overlay-animate.directive';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,6 @@ import { OverlayAnimate5Directive } from './cards/05/overlay/overlay-animate.dir
     Overlay5Component,
     GameCard5Component,
     GameCardOverlay5Component,
-    OverlayAnimate5Directive,
     Overlay6Component,
     GameCard6Component,
     GameCardOverlay6Component,

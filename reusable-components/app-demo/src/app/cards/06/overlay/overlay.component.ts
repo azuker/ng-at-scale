@@ -5,7 +5,6 @@ export type OverlayAnimationKindType = 'topToBottom' | 'leftToRight' | 'custom';
 
 @Component({
   selector: 'app-overlay6',
-  exportAs: 'appOverlay6',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.css'],
   animations: [ slideTopDownAnimation, slideLeftToRightAnimation ],

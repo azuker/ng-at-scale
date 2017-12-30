@@ -8,7 +8,7 @@ import { Game } from '../../models/model';
             <app-overlay6 *ngFor="let g of games; let first=first"
                           [customTrigger]="true"
                           [overlayAnimationKind]="first ? 'topToBottom' : 'leftToRight'"
-                          #trigger="appOverlay6">
+                          #trigger>
                 <app-game-card6 [game]="g" (click)="trigger.toggleOverlay(true)"></app-game-card6>
                 <app-game-card-overlay6 [game]="g"
                     (click)="trigger.toggleOverlay(false)"

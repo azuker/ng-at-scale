@@ -1,0 +1,9 @@
+<ng-container *ngTemplateOutlet="selectTemplate; context: { $implicit: this }"></ng-container>
+
+<ng-template let-select #defaultTemplate>
+  <select #list (change)="select.selectedItem = list.options[list.selectedIndex].value">
+    <option *ngFor="let i of select.items" [value]="i" [selected]="i === select.selectedItem">
+      {{ i }}
+    </option>
+  </select>
+</ng-template>

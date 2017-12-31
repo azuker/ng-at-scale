@@ -1,0 +1,23 @@
+<div class="tabs">
+  <button *ngFor="let tab of tabs"
+          (click)="selectTab(tab)"
+          [ngClass]="{ selected: selectedTab === tab }"
+          class="tablinks">
+    <ng-container *ngTemplateOutlet="headerTemplate == null ? defaultHeaderTemplate : headerTemplate; context: { $implicit: tab }"></ng-container>
+  </button>
+</div>
+<ng-container *ngTemplateOutlet="contentTemplate == null ? defaultContentTemplate : contentTemplate"></ng-container>
+
+<ng-template let-tab #defaultHeaderTemplate>
+  <span>{{ tab.header }}</span>
+</ng-template>
+
+<ng-template #defaultContentTemplate>
+  <div class="tabcontent">
+      <ng-container *ngTemplateOutlet="tabsContentTemplate"></ng-container>
+  </div>
+</ng-template>
+  
+<ng-template #tabsContentTemplate>
+    <ng-content></ng-content>
+</ng-template>

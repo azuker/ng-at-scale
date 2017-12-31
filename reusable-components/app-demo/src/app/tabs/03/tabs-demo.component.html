@@ -1,0 +1,35 @@
+<div>
+    <app-tabs3 #tabs (selectionChanged)="selectedEvent1 = $event">
+        <app-tab3 header="Tab 1">Tab 1 content</app-tab3>
+        <app-tab3 [selected]="true" header="Tab 2">Tab 2 content</app-tab3>
+    </app-tabs3>
+</div>
+<div style="margin-top: 20px; margin-bottom: 20px">
+    <span>selected input: {{ tabs.selectedTab?.header }}</span><br/>
+    <span>selected event: {{ selectedEvent1?.header }}</span>
+</div>
+
+<div>
+    <app-tabs3 [contentTemplate]="wizardTabContentTemplate"
+               (selectionChanged)="selectedEvent3 = $event" #tabs3>
+        <ng-container *tabsPresenter3></ng-container>
+        <app-tab3 [selected]="true" header="NameTab" #nameTab>
+            Enter your name: <input /> 
+        </app-tab3>
+        <app-tab3 header="AddressTab" #addressTab>
+            Enter your address: <input /> 
+        </app-tab3>
+    </app-tabs3>
+    <ng-template #wizardTabContentTemplate>
+        <div>
+            <ng-container *ngTemplateOutlet="tabs3.tabsContentTemplate"></ng-container><br/>
+            <button (click)="onWizardNextStep(tabs3)">
+                {{ tabs3.selectedTab === nameTab ? 'Next' : 'Done' }}
+            </button>
+        </div>
+    </ng-template>
+</div>
+<div style="margin-top: 20px; margin-bottom: 20px;">
+    <span>selected input: {{ tabs3.selectedTab?.header }}</span><br/>
+    <span>selected event: {{ selectedEvent3?.header }}</span>
+</div>

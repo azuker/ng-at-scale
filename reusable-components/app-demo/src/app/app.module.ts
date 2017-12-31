@@ -21,6 +21,21 @@ import { Overlay6Component } from './cards/06/overlay/overlay.component';
 import { GameCard6Component } from './cards/06/game-card/game-card.component';
 import { GameCardOverlay6Component } from './cards/06/game-card-overlay/game-card-overlay.component';
 
+import { TabsDemoComponent } from './tabs/tabs-demo.component';
+import { Tabs1Component } from './tabs/01/tabs/tabs.component';
+import { Tab1Component } from './tabs/01/tab/tab.component';
+import { Tabs2Component } from './tabs/02/tabs/tabs.component';
+import { Tab2Component } from './tabs/02/tab/tab.component';
+import { TabsPresenter2Directive } from './tabs/02/tabs-presenter.directive';
+import { VerticalTabsPresenter2Component } from './tabs/02/vertical-tabs-presenter.component';
+import { Tabs3Component } from './tabs/03/tabs/tabs.component';
+import { Tab3Component } from './tabs/03/tab/tab.component';
+import { TabsPresenter3Directive } from './tabs/03/tabs-presenter.directive';
+import { VerticalTabsPresenter3Component } from './tabs/03/vertical-tabs-presenter.component';
+import { ReusableSelectComponent } from './select/reusable-select/reusable-select.component';
+import { SelectDemoComponent } from './select/select-demo/select-demo.component';
+import { AmmapComponent } from './select/ammap/ammap.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +56,21 @@ import { GameCardOverlay6Component } from './cards/06/game-card-overlay/game-car
     Overlay6Component,
     GameCard6Component,
     GameCardOverlay6Component,
+
+    TabsDemoComponent,
+    Tabs1Component,
+    Tab1Component,
+    Tabs2Component,
+    Tab2Component,
+    TabsPresenter2Directive,
+    VerticalTabsPresenter2Component,
+    Tabs3Component,
+    Tab3Component,
+    TabsPresenter3Directive,
+    VerticalTabsPresenter3Component,
+    ReusableSelectComponent,
+    SelectDemoComponent,
+    AmmapComponent,
   ],
   entryComponents: [
     GameCardOverlay2Component,

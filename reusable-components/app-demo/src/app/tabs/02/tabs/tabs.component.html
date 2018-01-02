@@ -1,4 +1,4 @@
-<ng-container *ngTemplateOutlet="tabsPresenterTemplate; context: { $implicit: tabs, selector: this }"></ng-container>
+<ng-container *ngTemplateOutlet="tabsPresenterTemplate; context: { $implicit: tabs, selector: this, selectTabEmitter: selectTabEmitter }"></ng-container>
 <ng-container *ngTemplateOutlet="tabContentTemplate"></ng-container>
 
 <ng-template #defaultTabsPresenterTemplate>

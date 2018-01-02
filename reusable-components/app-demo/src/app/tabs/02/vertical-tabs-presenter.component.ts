@@ -1,13 +1,13 @@
-import { Component, TemplateRef, Input } from '@angular/core';
+import { Component, TemplateRef, Input, EventEmitter } from '@angular/core';
 import { Tabs2Component } from './tabs/tabs.component';
+import { Tab2Component } from './tab/tab.component';
 
 @Component({
     selector: 'app-vertical-tabs-presenter',
-    // template: `<div class="vertical"><ng-content></ng-content></div>`,
     template: `
         <div class="tabs">
-            <button *ngFor="let tab of tabs"
-                    (click)="selector.selectTab(tab)"
+            <button *ngFor="let tab of selector?.tabs"
+                    (click)="selectTabEmitter.emit(tab)"
                     [ngClass]="{ selected: selector.selectedTab === tab }"
                     class="tablinks">
                 <ng-container *ngTemplateOutlet="selector.tabHeaderTemplate; context: { $implicit: tab }"></ng-container>
@@ -57,11 +57,6 @@ import { Tabs2Component } from './tabs/tabs.component';
     ],
 })
 export class VerticalTabsPresenter2Component {
-    get tabs() {
-        return this.selector.tabs;
-    }
-
-    constructor(private selector: Tabs2Component) {
-
-    }
+    @Input() selector: Tabs2Component;
+    @Input() selectTabEmitter: EventEmitter<Tab2Component>;
 }

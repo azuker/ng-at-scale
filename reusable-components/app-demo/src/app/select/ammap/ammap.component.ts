@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 declare var AmCharts: any;
 
 @Component({
@@ -6,16 +6,14 @@ declare var AmCharts: any;
   templateUrl: './ammap.component.html',
   styleUrls: ['./ammap.component.css']
 })
-export class AmmapComponent implements OnInit {
-
+export class AmmapComponent implements OnInit, OnDestroy {
+  private map: any;
   selectedItem: string;
   @Output() selectedItemChanged = new EventEmitter<string>();
 
-  constructor() { }
-
   ngOnInit() {
     const self = this;
-    const map = AmCharts.makeChart('chartdiv', {
+    this.map = AmCharts.makeChart('chartdiv', {
       'type': 'map',
       'theme': 'light',
       'dataProvider': {
@@ -34,6 +32,10 @@ export class AmmapComponent implements OnInit {
           }
         }]
     });
+  }
+
+  ngOnDestroy() {
+    AmCharts.makeChart.destroyChart(this.map);
   }
 
   private setSelection(value: string) {

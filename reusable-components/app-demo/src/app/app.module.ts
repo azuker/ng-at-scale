@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { CardsDemoComponent } from './cards/cards-demo.component';
 import { GameCardOverlayComponent } from './cards/01/game-card-overlay/game-card-overlay.component';
 import { GameCardsListComponent } from './cards/game-cards-list.component';
 import { OverlayDynamicComponent } from './cards/02/overlay-dynamic/overlay-dynamic.component';
@@ -26,11 +27,11 @@ import { Tabs1Component } from './tabs/01/tabs/tabs.component';
 import { Tab1Component } from './tabs/01/tab/tab.component';
 import { Tabs2Component } from './tabs/02/tabs/tabs.component';
 import { Tab2Component } from './tabs/02/tab/tab.component';
-import { TabsPresenter2Directive } from './tabs/02/tabs-presenter.directive';
+import { TabsPresenter2Directive } from './tabs/02/tabs/tabs-presenter.directive';
 import { VerticalTabsPresenter2Component } from './tabs/02/vertical-tabs-presenter.component';
 import { Tabs3Component } from './tabs/03/tabs/tabs.component';
 import { Tab3Component } from './tabs/03/tab/tab.component';
-import { TabsPresenter3Directive } from './tabs/03/tabs-presenter.directive';
+import { TabsPresenter3Directive } from './tabs/03/tabs/tabs-presenter.directive';
 import { VerticalTabsPresenter3Component } from './tabs/03/vertical-tabs-presenter.component';
 import { ReusableSelectComponent } from './select/reusable-select/reusable-select.component';
 import { SelectDemoComponent } from './select/select-demo/select-demo.component';
@@ -39,8 +40,9 @@ import { AmmapComponent } from './select/ammap/ammap.component';
 @NgModule({
   declarations: [
     AppComponent,
-    GameCardOverlayComponent,
+    CardsDemoComponent,
     GameCardsListComponent,
+    GameCardOverlayComponent,
     OverlayDynamicComponent,
     GameCardOverlay2Component,
     GameCard2Component,

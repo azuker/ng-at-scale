@@ -1,7 +1,7 @@
 import { Component, QueryList, ContentChildren, ContentChild, TemplateRef, Input, Output,
   EventEmitter, SimpleChanges, OnChanges, AfterContentInit, ViewChild} from '@angular/core';
 import { Tab3Component as TabComponent } from '../tab/tab.component';
-import { TabsPresenter3Directive } from '../tabs-presenter.directive';
+import { TabsPresenter3Directive } from './tabs-presenter.directive';
 
 @Component({
   selector: 'app-tabs3',

@@ -11,8 +11,8 @@
 
 <div>
     <app-tabs2 #tabs2 (selectionChanged)="selectedEvent2 = $event">
-        <ul *tabsPresenter2="let tabs; let selector=selector">
-            <li *ngFor="let t of tabs" (click)="selector.selectTab(t)">
+        <ul *tabsPresenter2="let tabs; let selector=selector; let selectTabEmitter=selectTabEmitter">
+            <li *ngFor="let t of tabs" (click)="selectTabEmitter.emit(t)">
                 <ng-container *ngTemplateOutlet="selector.tabHeaderTemplate; context: { $implicit: t }"></ng-container>
             </li>
         </ul>
@@ -29,7 +29,10 @@
     <app-tabs2 [contentTemplate]="verticalTabContentTemplate" 
                [headerTemplate]="verticalTabHeaderTemplate"
                (selectionChanged)="selectedEvent3 = $event" #tabs3>
-        <app-vertical-tabs-presenter *tabsPresenter2></app-vertical-tabs-presenter>
+        <app-vertical-tabs-presenter *tabsPresenter2="let selector=selector; let selectTabEmitter=selectTabEmitter"
+                                     [selector]="selector"
+                                     [selectTabEmitter]="selectTabEmitter">
+        </app-vertical-tabs-presenter>
         <app-tab2 header="Tab 5">Tab 5 content</app-tab2>
         <app-tab2 [selected]="true" header="Tab 6">Tab 6 content</app-tab2>
     </app-tabs2>

@@ -1,14 +1,16 @@
 import { Component, QueryList, ContentChildren, ContentChild, TemplateRef, Input, Output,
-  EventEmitter, SimpleChanges, OnChanges, AfterContentInit, ViewChild} from '@angular/core';
+  EventEmitter, SimpleChanges, OnChanges, AfterContentInit, 
+  OnDestroy, ViewChild, OnInit } from '@angular/core';
 import { Tab2Component as TabComponent } from '../tab/tab.component';
-import { TabsPresenter2Directive } from '../tabs-presenter.directive';
+import { TabsPresenter2Directive } from './tabs-presenter.directive';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-tabs2',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.css']
 })
-export class Tabs2Component implements OnChanges, AfterContentInit {
+export class Tabs2Component implements OnInit, OnChanges, OnDestroy, AfterContentInit {
   @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
   @Input() headerTemplate: TemplateRef<any>;
   @Input() contentTemplate: TemplateRef<any>;
@@ -21,6 +23,9 @@ export class Tabs2Component implements OnChanges, AfterContentInit {
 
   @Output() selectionChanged = new EventEmitter<TabComponent>();
   @Input() selectedTab: TabComponent;
+  // Should consider using observables since subscribe isn't something you should use with EventEmitter
+  private selectTabEmitter = new EventEmitter<TabComponent>();
+  private subscription: Subscription;
 
   get tabsPresenterTemplate(): TemplateRef<any> {
     return this.tabsPresenter == null ? this.defaultTabsPresenterTemplate : this.tabsPresenter.template;
@@ -38,6 +43,14 @@ export class Tabs2Component implements OnChanges, AfterContentInit {
     if (changes.selectedTab) {
       this.selectTab(this.selectedTab);
     }
+  }
+
+  ngOnInit() {
+    this.subscription = this.selectTabEmitter.subscribe(tab => this.selectTab(tab));
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   selectTab(tab: TabComponent) {

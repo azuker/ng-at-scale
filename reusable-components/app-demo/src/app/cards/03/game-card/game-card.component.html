@@ -5,7 +5,13 @@
     <div class="date">
       <span>{{ game.date | date:'short' }}</span>
     </div>
-    <ng-container *ngTemplateOutlet="teamTemplate; context: { $implicit: game, team: game.homeTeam, score: game.homeScore, settings: { containerClass: 'home' } }">
+    <ng-container [ngTemplateOutlet]="teamTemplate"
+                  [ngTemplateOutletContext]="{ 
+                    $implicit: game, 
+                    team: game.homeTeam, 
+                    score: game.homeScore, 
+                    settings: { containerClass: 'home' }
+                  }">
     </ng-container>
   </div>
 </div>

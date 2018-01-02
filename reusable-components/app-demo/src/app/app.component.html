@@ -1,8 +1,9 @@
 <h1>Welcome to App!</h1>
 
-<!-- <game-cards-list [games]="games" 
-                 (playClicked)="onPlayClicked($event)"></game-cards-list> -->
+<div [ngSwitch]="demo">
+    <app-cards-demo *ngSwitchCase="'cards'"></app-cards-demo>
 
-<!-- <app-tabs-demo></app-tabs-demo> -->
+    <app-tabs-demo *ngSwitchCase="'tabs'"></app-tabs-demo>
 
-<app-select-demo></app-select-demo>
+    <app-select-demo *ngSwitchCase="'select'"></app-select-demo>
+</div>

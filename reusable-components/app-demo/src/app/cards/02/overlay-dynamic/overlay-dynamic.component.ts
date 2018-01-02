@@ -1,7 +1,7 @@
 import { Component, ViewChild, ViewContainerRef, Input, Type, ComponentRef,
   OnDestroy, AfterViewInit, AfterViewChecked, ComponentFactoryResolver, OnChanges,
   ElementRef, Output, EventEmitter } from '@angular/core';
-import { slideTopDownAnimation } from '../../../animations';
+import { slideTopDownAnimation } from '../../animations';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({

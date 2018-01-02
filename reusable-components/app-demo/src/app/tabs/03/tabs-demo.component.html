@@ -1,12 +1,32 @@
 <div>
-    <app-tabs3 #tabs (selectionChanged)="selectedEvent1 = $event">
-        <app-tab3 header="Tab 1">Tab 1 content</app-tab3>
-        <app-tab3 [selected]="true" header="Tab 2">Tab 2 content</app-tab3>
+    <app-tabs3 [contentTemplate]="verticalTabContentTemplate" 
+               [headerTemplate]="verticalTabHeaderTemplate"
+               (selectionChanged)="selectedEvent = $event" #tabs>
+        <app-vertical-tabs-presenter3 *tabsPresenter3="let selector=selector; let selectTabEmitter=selectTabEmitter"
+                                     [selector]="selector"
+                                     [selectTabEmitter]="selectTabEmitter">
+        </app-vertical-tabs-presenter3>
+        <app-tab3 header="BOS.svg">
+            <img class="tabPhoto" [src]="photoPrefix + 'BOS.svg'" />
+        </app-tab3>
+        <app-tab3 [selected]="true" header="CHA.svg">
+            <img class="tabPhoto" [src]="photoPrefix + 'CHA.svg'" />
+        </app-tab3>
     </app-tabs3>
+    <ng-template #verticalTabContentTemplate>
+        <ng-container *ngTemplateOutlet="tabs.tabsContentTemplate"></ng-container>
+    </ng-template>
+    <ng-template let-tab #verticalTabHeaderTemplate>
+        <img class="tablinks"
+             (mouseover)="tabs.selectTab(tab)"
+             [ngClass]="{ selected: tabs.selectedTab === tab }"
+             class="tablinks"
+             [src]="photoPrefix + tab.header" />
+    </ng-template>
 </div>
-<div style="margin-top: 20px; margin-bottom: 20px">
+<div style="margin-top: 20px; margin-bottom: 20px; clear: both">
     <span>selected input: {{ tabs.selectedTab?.header }}</span><br/>
-    <span>selected event: {{ selectedEvent1?.header }}</span>
+    <span>selected event: {{ selectedEvent?.header }}</span>
 </div>
 
 <div>

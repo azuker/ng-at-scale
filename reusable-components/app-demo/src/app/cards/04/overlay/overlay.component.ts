@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { slideTopDownAnimation } from '../../../animations';
+import { slideTopDownAnimation } from '../../animations';
 
 @Component({
   selector: 'app-overlay4',

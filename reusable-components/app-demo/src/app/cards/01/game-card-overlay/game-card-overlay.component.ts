@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Game } from '../../../models/model';
-import { slideTopDownAnimation } from '../../../animations';
+import { slideTopDownAnimation } from '../../animations';
 
 @Component({
   selector: 'game-card-overlay',

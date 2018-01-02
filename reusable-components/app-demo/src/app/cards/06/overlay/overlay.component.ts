@@ -1,5 +1,5 @@
 import { Component, Input, AnimationEntryMetadata } from '@angular/core';
-import { slideTopDownAnimation, slideLeftToRightAnimation } from '../../../animations';
+import { slideTopDownAnimation, slideLeftToRightAnimation } from '../../animations';
 
 export type OverlayAnimationKindType = 'topToBottom' | 'leftToRight' | 'custom';
 

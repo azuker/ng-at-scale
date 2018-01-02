@@ -1,6 +1,6 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Game } from '../../models/model';
-import { fadeAnimation } from '../../animations';
+import { fadeAnimation } from '../animations';
 
 @Component({
     selector: 'game-cards-list',

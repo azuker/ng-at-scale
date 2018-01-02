@@ -1,4 +1,4 @@
-import { trigger, state, transition, animate, style, keyframes, animateChild } from '@angular/animations';
+import { trigger, state, transition, animate, style, keyframes } from '@angular/animations';
 import { AnimationEntryMetadata } from '@angular/core';
 
 export const slideTopDownAnimation: AnimationEntryMetadata = trigger('slideTopDown', [

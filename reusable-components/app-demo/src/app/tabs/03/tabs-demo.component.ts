@@ -4,8 +4,11 @@ import { Tabs3Component } from './tabs/tabs.component';
 @Component({
     selector: 'app-tabs-demo',
     templateUrl: './tabs-demo.component.html',
+    styleUrls: [ './tabs-demo.component.css' ],
 })
 export class TabsDemo3Component {
+    photoPrefix = '../../../assets/images/';
+
     selectedEvent1: any;
     selectedEvent2: any;
     selectedEvent3: any;

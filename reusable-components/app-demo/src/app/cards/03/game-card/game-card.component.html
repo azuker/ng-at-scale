@@ -1,6 +1,11 @@
 <div class="card" *ngIf="game">
   <div class="container">
-    <ng-container *ngTemplateOutlet="teamTemplate; context: { $implicit: game, team: game.awayTeam, score: game.awayScore, settings: { containerClass: 'away' } }">
+    <ng-container *ngTemplateOutlet="teamTemplate; 
+      context: { 
+        $implicit: game, 
+        team: game.awayTeam, 
+        score: game.awayScore, 
+        settings: { containerClass: 'away' } }">
     </ng-container>
     <div class="date">
       <span>{{ game.date | date:'short' }}</span>

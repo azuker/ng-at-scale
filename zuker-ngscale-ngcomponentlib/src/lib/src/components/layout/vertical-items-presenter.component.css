@@ -1,0 +1,13 @@
+.itemsContainer {
+    float: left;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:5px;
+}
+
+:host ::ng-deep .itemsContainer > * {
+    margin: 5px;
+    box-sizing: border-box;
+}

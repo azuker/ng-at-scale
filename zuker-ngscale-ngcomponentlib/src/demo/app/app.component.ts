@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import { LibService } from 'zuker-ngscale-ngcomponentlib';
 
 @Component({
   selector: 'demo-app',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  meaning: number;
-  constructor(libService: LibService) {
-    this.meaning = libService.getMeaning();
-  }
 }

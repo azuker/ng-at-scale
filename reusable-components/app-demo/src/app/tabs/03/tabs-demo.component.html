@@ -1,4 +1,19 @@
 <div>
+    <app-tabs3 #tabsDynamic (selectionChanged)="selectedEvent2 = $event">
+        <app-tab3 *ngFor="let t of dynamicTabs; let isLast=first"
+                  [header]="t.header"
+                  [selected]="isLast">
+            {{ t.content }}
+        </app-tab3>
+    </app-tabs3>
+</div>
+<div style="margin-top: 20px;">
+    <span>selected input: {{ tabsDynamic.selectedTab?.header }}</span><br/>
+    <span>selected event: {{ selectedEvent2?.header }}</span>
+    <button (click)="addTab()">Add Tab</button>
+</div>
+
+<div>
     <app-tabs3 [contentTemplate]="verticalTabContentTemplate" 
                [headerTemplate]="verticalTabHeaderTemplate"
                (selectionChanged)="selectedEvent = $event" #tabs>

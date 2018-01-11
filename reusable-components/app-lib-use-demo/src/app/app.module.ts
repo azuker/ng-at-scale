@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LibModule } from 'zuker-ngscale-ngcomponentlib';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ZukNgLibModule } from 'zuker-ngscale-ngcomponentlib';
 
 import { AppComponent } from './app.component';
 
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    LibModule
+    BrowserAnimationsModule,
+    ZukNgLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

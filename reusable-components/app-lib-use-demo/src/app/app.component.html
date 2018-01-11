@@ -1,10 +1,26 @@
-<zuknglib-overlay>
-  <div class="card">
-      <div class="container">
-          <span>Some text, yeah!</span>
-      </div>
-  </div>
-  <div class="overlayContent" overlay>
-      <span>Some overlay text, yeah!</span>
-  </div>
-</zuknglib-overlay>
+<zuknglib-tabs>
+  <zuknglib-tab header="Sample 1">
+      <zuknglib-overlay>
+          <div class="card">
+              <div class="container">
+                  <span>Some text, yeah!</span>
+              </div>
+          </div>
+          <div class="overlayContent" overlay>
+              <span>Some overlay text, yeah!</span>
+          </div>
+      </zuknglib-overlay>
+  </zuknglib-tab>
+  <zuknglib-tab header="Sample 2" [selected]="true">
+    <zuknglib-overlay overlayAnimationKind="leftToRight">
+        <div class="card">
+            <div class="container">
+                <span>Some other text, yeah!</span>
+            </div>
+        </div>
+        <div class="overlayContent" overlay>
+            <span>Some other overlay text, yeah!</span>
+        </div>
+    </zuknglib-overlay>
+  </zuknglib-tab>
+</zuknglib-tabs>

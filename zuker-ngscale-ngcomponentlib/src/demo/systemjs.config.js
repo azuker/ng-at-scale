@@ -28,6 +28,8 @@
 
       // other libraries
       'rxjs': 'npm:rxjs',
+      'traceur': 'npm:traceur/src/traceur-import.js',
+      'angular-playground': 'npm:angular-playground/dist/index.js',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

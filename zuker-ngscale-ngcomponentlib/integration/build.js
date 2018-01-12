@@ -39,7 +39,8 @@ return Promise.resolve()
   .then(() => {
     // Copy and rename index-aot.html.
     fs.createReadStream(path.join(srcDir, 'index-aot.html'))
-      .pipe(fs.createWriteStream(path.join(distDir, 'index.html')));
+      .pipe(fs.createWriteStream(path.join(distDir, 'index.html')))
+      .pipe(fs.createWriteStream(path.join(distDir, 'index-pg.html')));
 
     // Copy global stylesheets, images, etc.
     const assets = [

@@ -4,7 +4,7 @@ import { OverlayComponent } from './overlay.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [OverlayComponent],
   exports: [

@@ -1,0 +1,7 @@
+Alright, that is better.
+Cnn we improve it further though? Yes we can.
+
+What if someone comes and wants to change the trigger upon which the overlay appears?
+For example, on mouse click.
+
+Let's see how we can support that.

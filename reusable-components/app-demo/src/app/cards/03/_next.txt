@@ -1,0 +1,4 @@
+Currently we use dynamic components, however there's a more suitable feature we can use for this type of component,
+and that is - Content Projection.
+
+Let's switch dynamic components with content projection.

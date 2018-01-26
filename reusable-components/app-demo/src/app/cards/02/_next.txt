@@ -1,0 +1,2 @@
+That's certainly better.
+Let's see another small improvement we can do in the game card component.

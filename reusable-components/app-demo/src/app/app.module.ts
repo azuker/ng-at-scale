@@ -23,6 +23,8 @@ import { GameCard6Component } from './cards/06/game-card/game-card.component';
 import { GameCardOverlay6Component } from './cards/06/game-card-overlay/game-card-overlay.component';
 
 import { TabsDemoComponent } from './tabs/tabs-demo.component';
+import { Tabs0Component } from './tabs/00/tabs/tabs.component';
+import { Tab0Component } from './tabs/00/tab/tab.component';
 import { Tabs1Component } from './tabs/01/tabs/tabs.component';
 import { Tab1Component } from './tabs/01/tab/tab.component';
 import { Tabs2Component } from './tabs/02/tabs/tabs.component';
@@ -60,6 +62,8 @@ import { AmmapComponent } from './select/ammap/ammap.component';
     GameCardOverlay6Component,
 
     TabsDemoComponent,
+    Tabs0Component,
+    Tab0Component,
     Tabs1Component,
     Tab1Component,
     Tabs2Component,

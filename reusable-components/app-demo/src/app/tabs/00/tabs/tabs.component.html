@@ -1,0 +1,11 @@
+<div class="tabs">
+  <button *ngFor="let tab of tabs"
+          (click)="selectTab(tab)"
+          [ngClass]="{ selected: selectedTab === tab }"
+          class="tablinks">
+      <span>{{ tab.header }}</span>
+  </button>
+</div>
+<div class="tabcontent">
+    <ng-content></ng-content>
+</div>

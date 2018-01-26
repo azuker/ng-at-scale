@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, DoCheck, OnDestroy, NgZone, Input, ApplicationRef } from '@angular/core';
+
 declare var AmCharts: any;
 
 @Component({
@@ -6,13 +7,31 @@ declare var AmCharts: any;
   templateUrl: './ammap.component.html',
   styleUrls: ['./ammap.component.css']
 })
-export class AmmapComponent implements OnInit, OnDestroy {
+export class AmmapComponent implements OnInit, OnDestroy, DoCheck {
   private map: any;
   selectedItem: string;
+  cdCycles = 0;
+  @Input() zoneExcluded = true;
+
   @Output() selectedItemChanged = new EventEmitter<string>();
 
+  constructor(private zone: NgZone, private app: ApplicationRef) { }
+
   ngOnInit() {
+    if (this.zoneExcluded) {
+      this.zone.runOutsideAngular(() => this.initMap());
+    } else {
+      this.initMap();
+    }
+  }
+
+  ngDoCheck() {
+    this.cdCycles++;
+  }
+
+  private initMap() {
     const self = this;
+
     this.map = AmCharts.makeChart('chartdiv', {
       'type': 'map',
       'theme': 'light',
@@ -39,6 +58,14 @@ export class AmmapComponent implements OnInit, OnDestroy {
   }
 
   private setSelection(value: string) {
+    if (this.zoneExcluded) {
+      this.zone.runGuarded(() => this.syncSelection(value));
+    } else {
+      this.syncSelection(value);
+    }
+  }
+
+  private syncSelection(value: string) {
     this.selectedItem = value;
     this.selectedItemChanged.emit(this.selectedItem);
   }

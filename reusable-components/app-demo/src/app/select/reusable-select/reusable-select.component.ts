@@ -6,7 +6,7 @@ import { Component, Input, ViewChild, TemplateRef, OnChanges } from '@angular/co
   styleUrls: ['./reusable-select.component.css']
 })
 export class ReusableSelectComponent implements OnChanges {
-
+  // Can consider supporting NgModel via ControlValueAccessor too
   @Input() items: any[];
   @Input() selectedItem: any;
   @Input() customTemplate: TemplateRef<any>;

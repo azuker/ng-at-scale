@@ -12,6 +12,7 @@ export class AmmapComponent implements OnInit, OnDestroy, DoCheck {
   selectedItem: string;
   cdCycles = 0;
   @Input() zoneExcluded = true;
+  @Input() showCounter = false;
 
   @Output() selectedItemChanged = new EventEmitter<string>();
 

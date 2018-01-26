@@ -15,5 +15,6 @@
 </div>
 
 <ng-template let-select #mapTemplate>
-  <app-ammap (selectedItemChanged)="select.selectedItem = $event"></app-ammap>
+  <app-ammap (selectedItemChanged)="select.selectedItem = $event"
+             [showCounter]="false" [zoneExcluded]="true"></app-ammap>
 </ng-template>

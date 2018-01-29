@@ -17,6 +17,7 @@ export class Overlay6Component {
   @Input() overlayAnimationKind: OverlayAnimationKindType = 'topToBottom';
 
   toggleOverlayInternal(value?: boolean) {
+    // can consider adding/removing listeners by using the Renderer instead
     if (!this.customTrigger) {
       this.toggleOverlay(value);
     }

@@ -16,7 +16,7 @@ export class Overlay6Component {
   @Input() customTrigger = false;
   @Input() overlayAnimationKind: OverlayAnimationKindType = 'topToBottom';
 
-  private toggleOverlayInternal(value?: boolean) {
+  toggleOverlayInternal(value?: boolean) {
     if (!this.customTrigger) {
       this.toggleOverlay(value);
     }

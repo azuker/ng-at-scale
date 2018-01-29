@@ -7,5 +7,5 @@ import { Game } from './models/model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  demo: 'cards' | 'tabs' | 'select' = 'select';
+  demo: 'cards' | 'tabs' | 'select' = 'cards';
 }

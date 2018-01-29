@@ -6,6 +6,7 @@ import { GameCard3Component } from './game-card/game-card.component';
 @Component({
     selector: 'game-cards-list',
     template: `
+        <h1>Game Cards 03</h1>
         <div class="cards-container">
             <app-overlay-dynamic *ngFor="let g of games"
                 [cardData]="g" [overlayData]="g"

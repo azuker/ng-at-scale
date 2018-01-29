@@ -4,6 +4,7 @@ import { Game } from '../../models/model';
 @Component({
     selector: 'game-cards-list',
     template: `
+        <h1>Game Cards 06</h1>
         <div class="cards-container">
             <app-overlay6 *ngFor="let g of games; let first=first"
                           [customTrigger]="true"

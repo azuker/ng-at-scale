@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-tabs-demo',
     template: `
+        <h1>Tabs 00</h1>
         <div>
             <app-tabs0 #tabs (selectionChanged)="onSelectionChanged($event)">
                 <app-tab0 header="Tab 1">Tab 1 content</app-tab0>

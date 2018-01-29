@@ -5,6 +5,7 @@ import { fadeAnimation } from '../animations';
 @Component({
     selector: 'game-cards-list',
     template: `
+        <h1>Game Cards 05</h1>
         <div class="cards-container">
             <app-overlay5 *ngFor="let g of games; let first=first"
                            [overlayAnimationKind]="first ? 'topToBottom' : 'leftToRight'">

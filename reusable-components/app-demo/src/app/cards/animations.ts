@@ -36,3 +36,14 @@ export const fadeAnimation: AnimationEntryMetadata = trigger('overlayAnimation',
     animate('300ms ease-out', style({opacity: 0}))
   ])
 ]);
+
+export const fadeActivatedAnimation: AnimationEntryMetadata = [
+  state('true', style({opacity: 0.7, display: 'flex' })), // end styles by convention
+  style({ opacity: 0 }),
+  animate('300ms ease-out', style({opacity: 0.7})),
+];
+
+export const fadeDeactivatedAnimation: AnimationEntryMetadata = [
+  state('false', style({ display: 'none' })),  // end styles by convention
+  animate('300ms ease-out', style({opacity: 0}))
+];

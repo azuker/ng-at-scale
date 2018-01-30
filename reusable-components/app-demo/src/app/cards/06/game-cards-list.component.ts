@@ -1,27 +1,18 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Game } from '../../models/model';
+import { fadeActivatedAnimation, fadeDeactivatedAnimation } from '../animations';
 
 @Component({
     selector: 'game-cards-list',
-    template: `
-        <h1>Game Cards 06</h1>
-        <div class="cards-container">
-            <app-overlay6 *ngFor="let g of games; let first=first"
-                          [customTrigger]="true"
-                          [overlayAnimationKind]="first ? 'topToBottom' : 'leftToRight'"
-                          #trigger>
-                <app-game-card6 [game]="g" (click)="trigger.toggleOverlay(true)"></app-game-card6>
-                <app-game-card-overlay6 [game]="g"
-                    (click)="trigger.toggleOverlay(false)"
-                    (playClicked)="onPlayClicked($event)" overlay></app-game-card-overlay6>
-            </app-overlay6>
-        </div>
-    `,
-    styles: [ '.cards-container { display: flex; justify-content: space-around; }' ],
+    templateUrl: './game-cards-list.component.html',
+    styles: [ '.cards-container { display: flex; justify-content: space-around; margin-top: 30px; }' ],
 })
 export class GameCardsList6Component {
     @Input() games: Game[] = [];
     @Output() playClicked = new EventEmitter<Game>();
+
+    fadeActivated = fadeActivatedAnimation;
+    fadeDeactivated = fadeDeactivatedAnimation;
 
     onPlayClicked(game: Game) {
         this.playClicked.emit(game);

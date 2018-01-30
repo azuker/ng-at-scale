@@ -8,7 +8,7 @@ import { Game } from '../../models/model';
         <div class="cards-container">
             <game-card-overlay *ngFor="let g of games"
                 [game]="g"
-                (playClicked)="onPlayClicked(event)">
+                (playClicked)="onPlayClicked($event)">
             </game-card-overlay>
         </div>
     `,

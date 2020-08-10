@@ -1,0 +1,9 @@
+<div class="container" (mouseover)="toggleOverlayInternal(true)" (mouseleave)="toggleOverlayInternal(false)">
+  <ng-content></ng-content>
+  <div class="overlay" 
+       [@slideTopDown]="overlayAnimationKind === 'topToBottom' ? topToBottomActive.toString() : 'NA'"
+       [@slideLeftToRight]="overlayAnimationKind === 'leftToRight' ? leftToRightActive.toString() : 'NA'"
+       #overlayContainer>
+      <ng-content select="[overlay]"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<h1>Game Cards 06</h1>
+
+<div class="cards-container">
+    <app-overlay6 *ngFor="let g of games; let first=first"
+                    [customTrigger]="true"
+                    [overlayAnimationKind]="first ? 'topToBottom' : 'leftToRight'"
+                    #trigger>
+        <app-game-card6 [game]="g" (click)="trigger.toggleOverlay(true)"></app-game-card6>
+        <app-game-card-overlay6 [game]="g"
+            (click)="trigger.toggleOverlay(false)"
+            (playClicked)="onPlayClicked($event)" overlay></app-game-card-overlay6>
+    </app-overlay6>
+</div>
+
+<div class="cards-container">
+    <app-overlay6 overlayAnimationKind="custom" [customTrigger]="true" #fadeCard
+                    [overlayActivatedAnimation]="fadeActivated"
+                    [overlayDeactivatedAnimation]="fadeDeactivated">
+        <app-game-card6 [game]="games[0]" (click)="fadeCard.toggleOverlay(true)"></app-game-card6>
+        <app-game-card-overlay6 [game]="games[0]"
+            (click)="fadeCard.toggleOverlay(false)"
+            (playClicked)="onPlayClicked($event)" overlay></app-game-card-overlay6>
+    </app-overlay6>
+</div>

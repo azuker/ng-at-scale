@@ -1,0 +1,6 @@
+<div class="container" (mouseover)="toggleOverlay(true)" (mouseleave)="toggleOverlay(false)">
+  <ng-content></ng-content>
+  <div class="overlay" [@slideTopDown]="overlayActive.toString()">
+      <ng-content select="[overlay]"></ng-content>
+  </div>
+</div>

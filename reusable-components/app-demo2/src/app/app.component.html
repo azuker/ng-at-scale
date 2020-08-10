@@ -1,0 +1,8 @@
+<app-perf></app-perf>
+<div [ngSwitch]="demo">
+  <app-cards-demo *ngSwitchCase="'cards'"></app-cards-demo>
+
+  <app-tabs-demo *ngSwitchCase="'tabs'"></app-tabs-demo>
+
+  <app-select-demo *ngSwitchCase="'select'"></app-select-demo>
+</div>

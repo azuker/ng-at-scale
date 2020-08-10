@@ -1,0 +1,10 @@
+Is this reusable? Not really
+Yes, it can display different games, but nothing else really
+- Nba shop - product card
+- Other areas in the same app
+Currently the behavior is hard-wired with the actual UI content
+
+* What is the behavior?
+Displays some content, mouse over, shows an overlay with another content while animating top-down
+
+Let's take this a step forward using Dynamic Components

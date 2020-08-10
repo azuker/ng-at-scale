@@ -1,0 +1,52 @@
+<h1>Tabs 02</h1>
+
+<div>
+    <app-tabs2 #tabs (selectionChanged)="selectedEvent1 = $event">
+        <app-tab2 header="Tab 1">Tab 1 content</app-tab2>
+        <app-tab2 [selected]="true" header="Tab 2">Tab 2 content</app-tab2>
+    </app-tabs2>
+</div>
+<div style="margin-top: 20px; margin-bottom: 20px">
+    <span>selected input: {{ tabs.selectedTab?.header }}</span><br/>
+    <span>selected event: {{ selectedEvent1?.header }}</span>
+</div>
+
+<div>
+    <app-tabs2 #tabs2 (selectionChanged)="selectedEvent2 = $event">
+        <ul *tabsPresenter2="let tabs; let selector=selector; let selectTabEmitter=selectTabEmitter">
+            <li *ngFor="let t of tabs" (click)="selectTabEmitter.emit(t)">
+                <ng-container *ngTemplateOutlet="selector.tabHeaderTemplate; context: { $implicit: t }"></ng-container>
+            </li>
+        </ul>
+        <app-tab2 header="Tab 3">Tab 3 content</app-tab2>
+        <app-tab2 [selected]="true" header="Tab 4">Tab 4 content</app-tab2>
+    </app-tabs2>
+</div>
+<div style="margin-top: 20px; margin-bottom: 20px">
+    <span>selected input: {{ tabs2.selectedTab?.header }}</span><br/>
+    <span>selected event: {{ selectedEvent2?.header }}</span>
+</div>
+
+<div>
+    <app-tabs2 [contentTemplate]="verticalTabContentTemplate" 
+               [headerTemplate]="verticalTabHeaderTemplate"
+               (selectionChanged)="selectedEvent3 = $event" #tabs3>
+        <app-vertical-tabs-presenter *tabsPresenter2="let selector=selector; let selectTabEmitter=selectTabEmitter"
+                                     [selector]="selector"
+                                     [selectTabEmitter]="selectTabEmitter">
+        </app-vertical-tabs-presenter>
+        <app-tab2 header="Tab 5">Tab 5 content</app-tab2>
+        <app-tab2 [selected]="true" header="Tab 6">Tab 6 content</app-tab2>
+    </app-tabs2>
+    <ng-template #verticalTabContentTemplate>
+        <h1>{{ tabs3.selectedTab.header }}</h1>
+        <ng-container *ngTemplateOutlet="tabs3.tabsContentTemplate"></ng-container>
+    </ng-template>
+    <ng-template let-tab #verticalTabHeaderTemplate>
+        <span>{{ tab.header }} --></span>
+    </ng-template>
+</div>
+<div style="margin-top: 20px; margin-bottom: 20px; clear: both">
+    <span>selected input: {{ tabs3.selectedTab?.header }}</span><br/>
+    <span>selected event: {{ selectedEvent3?.header }}</span>
+</div>

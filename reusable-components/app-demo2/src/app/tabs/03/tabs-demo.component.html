@@ -1,0 +1,72 @@
+<h1>Tabs 03</h1>
+
+<div>
+    <app-tabs3 #tabsDynamic (selectionChanged)="selectedEvent1 = $event">
+        <app-tab3 *ngFor="let t of dynamicTabs; let isLast=first"
+                  [header]="t.header"
+                  [selected]="isLast">
+            {{ t.content }}
+        </app-tab3>
+    </app-tabs3>
+</div>
+<div style="margin-top: 20px;">
+    <span>selected input: {{ tabsDynamic.selectedTab?.header }}</span><br/>
+    <span>selected event: {{ selectedEvent1?.header }}</span>
+    <button (click)="addTab()">Add Tab</button>
+</div>
+
+<div>
+    <app-tabs3 [contentTemplate]="verticalTabContentTemplate" 
+               [headerTemplate]="verticalTabHeaderTemplate"
+               (selectionChanged)="selectedEvent2 = $event" #tabs>
+        <app-vertical-tabs-presenter3 *tabsPresenter3="let selector=selector; let selectTabEmitter=selectTabEmitter"
+                                     [selector]="selector"
+                                     [selectTabEmitter]="selectTabEmitter">
+        </app-vertical-tabs-presenter3>
+        <app-tab3 header="BOS.svg">
+            <img class="tabPhoto" [src]="photoPrefix + 'BOS.svg'" />
+        </app-tab3>
+        <app-tab3 [selected]="true" header="CHA.svg">
+            <img class="tabPhoto" [src]="photoPrefix + 'CHA.svg'" />
+        </app-tab3>
+    </app-tabs3>
+    <ng-template #verticalTabContentTemplate>
+        <ng-container *ngTemplateOutlet="tabs.tabsContentTemplate"></ng-container>
+    </ng-template>
+    <ng-template let-tab #verticalTabHeaderTemplate>
+        <img class="tablinks"
+             (mouseover)="tabs.selectTab(tab)"
+             [ngClass]="{ selected: tabs.selectedTab === tab }"
+             class="tablinks"
+             [src]="photoPrefix + tab.header" />
+    </ng-template>
+</div>
+<div style="margin-top: 20px; margin-bottom: 20px; clear: both">
+    <span>selected input: {{ tabs.selectedTab?.header }}</span><br/>
+    <span>selected event: {{ selectedEvent2?.header }}</span>
+</div>
+
+<div>
+    <app-tabs3 [contentTemplate]="wizardTabContentTemplate"
+               (selectionChanged)="selectedEvent3 = $event" #tabs3>
+        <ng-container *tabsPresenter3></ng-container>
+        <app-tab3 [selected]="true" header="NameTab" #nameTab>
+            Enter your name: <input /> 
+        </app-tab3>
+        <app-tab3 header="AddressTab" #addressTab>
+            Enter your address: <input /> 
+        </app-tab3>
+    </app-tabs3>
+    <ng-template #wizardTabContentTemplate>
+        <div>
+            <ng-container *ngTemplateOutlet="tabs3.tabsContentTemplate"></ng-container><br/>
+            <button (click)="onWizardNextStep(tabs3)">
+                {{ tabs3.selectedTab === nameTab ? 'Next' : 'Done' }}
+            </button>
+        </div>
+    </ng-template>
+</div>
+<div style="margin-top: 20px; margin-bottom: 20px;">
+    <span>selected input: {{ tabs3.selectedTab?.header }}</span><br/>
+    <span>selected event: {{ selectedEvent3?.header }}</span>
+</div>

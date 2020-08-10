@@ -1,0 +1,24 @@
+<h1>Reusable Select</h1>
+
+<h2>Default Template</h2>
+<div>
+    <app-reusable-select [items]="items" #select1>
+    </app-reusable-select>
+</div>
+<div style="margin-bottom: 50px">
+  Selected item: {{ select1.selectedItem }}
+</div>
+
+<h2>Custom Template</h2>
+<div>
+    <app-reusable-select [customTemplate]="mapTemplate" #select2>
+    </app-reusable-select>
+</div>
+<div>
+  Selected item: {{ select2.selectedItem }}
+</div>
+
+<ng-template let-select #mapTemplate>
+  <app-ammap (selectedItemChanged)="select.selectedItem = $event"
+             [showCounter]="false" [zoneExcluded]="true"></app-ammap>
+</ng-template>

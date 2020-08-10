@@ -1,0 +1,24 @@
+<div class="card" (mouseover)="toggleOverlay(true)" (mouseleave)="toggleOverlay(false)">
+  <div class="container">
+    <div class="away">
+      <img [src]="teamPhotoPrefix + game.awayTeam.imageName" />
+      <span>{{ game.awayTeam.name }}</span>
+      <span *ngIf="game.awayScore">{{ game.awayScore }}</span>
+    </div>
+    <div class="date">
+      <span>{{ game.date | date:'short' }}</span>
+    </div>
+    <div class="home">
+      <img [src]="teamPhotoPrefix + game.homeTeam.imageName" />
+      <span>{{ game.homeTeam.name }}</span>
+      <span *ngIf="game.homeScore">{{ game.homeScore }}</span>
+    </div>
+  </div>
+  <div class="overlay" [@slideTopDown]="overlayActive.toString()">
+    <div class="overlayContent">
+        <span>{{ isOver ? 'Game has ended' : 'Game has not begun' }}</span>
+        <img [src]="teamPhotoPrefix + 'Play.svg'" (click)="onPlayClicked()" />
+        <span>{{ isOver ? 'Watch game' : 'Preview' }}</span>
+    </div>
+  </div>
+</div>

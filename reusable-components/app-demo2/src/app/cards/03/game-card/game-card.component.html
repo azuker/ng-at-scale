@@ -1,0 +1,29 @@
+<div class="card" *ngIf="game">
+  <div class="container">
+    <ng-container *ngTemplateOutlet="teamTemplate; 
+      context: { 
+        $implicit: game, 
+        team: game.awayTeam, 
+        score: game.awayScore, 
+        settings: { containerClass: 'away' } }">
+    </ng-container>
+    <div class="date">
+      <span>{{ game.date | date:'short' }}</span>
+    </div>
+    <ng-container [ngTemplateOutlet]="teamTemplate"
+                  [ngTemplateOutletContext]="{ 
+                    $implicit: game, 
+                    team: game.homeTeam, 
+                    score: game.homeScore, 
+                    settings: { containerClass: 'home' }
+                  }">
+    </ng-container>
+  </div>
+</div>
+<ng-template let-game let-settings="settings" let-team="team" let-score="score" #teamTemplate>
+    <div [class]="settings.containerClass">
+      <img [src]="teamPhotoPrefix + team.imageName" />
+      <span>{{ team.name }}</span>
+      <span *ngIf="score">{{ score }}</span>
+    </div>
+</ng-template>
